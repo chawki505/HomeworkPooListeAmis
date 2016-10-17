@@ -89,10 +89,16 @@ public class Personne {
 
     //methode pour afficher vos amis etranger
     void afficherAmiEtranger() {
-        for (int i = 0; i < listeAmis.size(); i++) {
-            if (!listeAmis.get(i).nationalitee.equals(nationalitee))
-                System.out.println(listeAmis.get(i).toString());
-        }
+        int compteur = 0;
+        if (nombreAmi != 0) {
+            for (int i = 0; i < listeAmis.size(); i++) {
+                if (!listeAmis.get(i).nationalitee.equals(nationalitee)) {
+                    System.out.println(listeAmis.get(i).toString());
+                    compteur++;
+                }
+            }
+            System.out.println("---> Vous avez " + compteur + " ami(s) etranger <---");
+        } else System.out.println("---> Vous n'avez pas encore d'amis <---");
     }
 
     @Override

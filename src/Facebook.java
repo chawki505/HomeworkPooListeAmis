@@ -64,9 +64,9 @@ public class Facebook {
     private void creerPersonne() {
         System.out.print("Donnez un nom :");
         String nom = getChoixString();
-        System.out.print("La nationaliter :");
+        System.out.print("\nLa nationaliter :");
         System.out.println("\n1- Algerie\n2- France\n3- Espagne\n4- Canada");
-        System.out.print("Selectionner-une de 1 a 4 :  ");
+        System.out.print("\nSelectionner-une de 1 a 4 :  ");
         String nat = getChoixString();
         switch (nat) {
             case "1":
@@ -75,7 +75,7 @@ public class Facebook {
             case "DZ":
             case "dz":
                 membre.add(new Personne(nom, "Algerie"));
-                System.out.println("Vos information en ete creer  " + membre.get(nombrePersonne).toString());
+                System.out.println("\nVos information en ete creer  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
             case "2":
@@ -84,7 +84,7 @@ public class Facebook {
             case "FR":
             case "fr":
                 membre.add(new Personne(nom, "France"));
-                System.out.println("Creation de  " + membre.get(nombrePersonne).toString());
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
             case "3":
@@ -93,7 +93,7 @@ public class Facebook {
             case "ES":
             case "es":
                 membre.add(new Personne(nom, "Espagne"));
-                System.out.println("Creation de  " + membre.get(nombrePersonne).toString());
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
 
@@ -101,12 +101,12 @@ public class Facebook {
             case "Canada":
             case "canada":
                 membre.add(new Personne(nom, "Canada"));
-                System.out.println("Creation de  " + membre.get(nombrePersonne).toString());
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
 
             default:
-                System.out.println("Erreur de saisi alors on vous considere comme un Algerien !");
+                System.out.println("\nErreur de saisi alors on vous considere comme un Algerien !");
                 membre.add(new Personne(nom, "Algerie"));
                 System.out.println("Creation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
@@ -121,7 +121,7 @@ public class Facebook {
         while (run) {
             System.out.println("\n==== Menu Admin ====");
             System.out.println("\n1- creer une personne \n2- Suprimer une personnne \n3- Affichcer tous les utilisateur  \n4- Retour");
-            System.out.print("Votre choix : ");
+            System.out.print("\nVotre choix : ");
             int choix = getChoixInt();
             switch (choix) {
                 case 1:
@@ -130,21 +130,22 @@ public class Facebook {
                 case 2:
                     if (nombrePersonne > 0) {
                         afficherListPersonne();
-                        System.out.print("choix :");
+                        System.out.print("\nchoix :");
                         choix = getChoixInt();
                         if (choix != 1) {
                             suprimerPersonne(membre.get(choix - 1));
-                            System.out.println("la personne a ete suprimé");
-                        } else System.out.println(" Desoler vous ne pouvez pas vous suprimer ");
+                            System.out.println("\n---> la personne a ete suprimé <---");
+                        } else System.out.println("\n---> Desoler vous ne pouvez pas vous suprimer <---");
 
-                    } else System.out.println("creer dabord une personne avant de suprimé");
+                    } else System.out.println("\n---> Creer dabord une personne avant de suprimé <---");
                     break;
                 case 3:
                     if (nombrePersonne > 0)
                         afficherListPersonne();
-                    else System.out.println("il n y a aucune personne pour le moment ");
+                    else System.out.println("\n---> il n y a aucune personne pour le moment <---");
                     break;
                 case 4:
+                    System.out.println("\n----------------> Retour <----------------");
                     run = false;
                     break;
             }
@@ -159,41 +160,41 @@ public class Facebook {
         while (run) {
             System.out.println("\n==== Menu User (" + personne.getNom() + ") ====");
             System.out.println("\n1- Afficher votre liste ami \n2- Ajouter un ami \n3- Suprmier un ami \n4- Afficher vos information \n5- Afficher vos amis etranger \n6- Retour");
-            System.out.print("Votre choix : ");
+            System.out.print("\nVotre choix : ");
 
             int choix = getChoixInt();
             switch (choix) {
                 case 1:
                     if (personne.getNombreAmi() > 0)
                         personne.afficherListAmis();
-                    else System.out.println("vous navez aucun ami , veuilez en ajouter");
+                    else System.out.println("\n----> vous navez aucun ami , veuillez en ajouter <----");
                     break;
                 case 2:
                     if (nombrePersonne < 2)
-                        System.out.println("il n y a pas encore d'autre utilisateur ");
+                        System.out.println("\n----> il n y a pas encore d'autre utilisateur <----");
                     else {
                         afficherListPersonne();
-                        System.out.print("choix :");
+                        System.out.print("\nchoix :");
                         choix = getChoixInt();
                         if (choix == 1) {
-                            System.out.println("vous ne pouvez pas vous ajouter sois meme a votre liste d'ami");
+                            System.out.println("\n----> vous ne pouvez pas vous ajouter a votre propre liste d'ami <----");
                         } else {
                             if (!personne.rechercheAmi(membre.get(choix - 1))) {
                                 personne.ajouterAmi(membre.get(choix - 1));
-                                System.out.println("vous avez un nouveau ami");
-                            } else System.out.println("vous etes deja ami avec cette personne");
+                                System.out.println("\n----> vous avez un nouveau ami <----");
+                            } else System.out.println("\n---> vous etes deja ami avec cette personne <---");
                         }
                     }
                     break;
                 case 3:
                     if (personne.getNombreAmi() < 1)
-                        System.out.println("vous ne pouvez suprimer quelqun tant que votre liste d'ami est vide");
+                        System.out.println("\n---> vous ne pouvez suprimer quelq'un tant que votre liste d'ami est vide <---");
                     else {
                         personne.afficherListAmis();
-                        System.out.print("choix :");
+                        System.out.print("\nchoix :");
                         choix = getChoixInt();
                         personne.suprimerAmi(personne.getListeAmis().get(choix - 1));
-                        System.out.println(" ami suprimer");
+                        System.out.println("\n---> Ami suprimer <----");
                     }
                     break;
 
@@ -205,6 +206,7 @@ public class Facebook {
                     personne.afficherAmiEtranger();
                     break;
                 case 6:
+                    System.out.println("\n----------------> Retour <----------------");
                     run = false;
                     break;
             }
@@ -217,13 +219,13 @@ public class Facebook {
 
     void interactionMenuPrincipale() {
 
-        System.out.println("====== Bienvenu dans le reseau ! ===== ");
+        System.out.println("\n======= Bienvenu dans le reseau social ! ====== ");
         creerPersonne();
         boolean run = true;
         while (run) {
 
-            System.out.println("\n====Menu====");
-            System.out.println("1- administration \n2- utilisateur \n3- quitter");
+            System.out.println("\n======= Menu =======");
+            System.out.println("\n1- administration \n2- utilisateur \n3- quitter");
             System.out.print("\nChoix:");
 
             int choix = getChoixInt();
@@ -246,6 +248,7 @@ public class Facebook {
                     break;
 
                 case 3:
+                    System.out.println("\n----------------> Retour <----------------");
                     run = false;
                     break;
 
