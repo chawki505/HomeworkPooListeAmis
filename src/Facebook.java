@@ -132,7 +132,7 @@ public class Facebook {
                         afficherListPersonne();
                         System.out.print("\nchoix :");
                         choix = getChoixInt();
-                        if (choix != 1) {
+                        if (choix == 1) {
                             suprimerPersonne(membre.get(choix - 1));
                             System.out.println("\n---> la personne a ete suprimé <---");
                         } else System.out.println("\n---> Desoler vous ne pouvez pas vous suprimer <---");
@@ -176,7 +176,7 @@ public class Facebook {
                         afficherListPersonne();
                         System.out.print("\nchoix :");
                         choix = getChoixInt();
-                        if (choix == 1) {
+                        if ((membre.indexOf(personne) + 1) == choix) {
                             System.out.println("\n----> vous ne pouvez pas vous ajouter a votre propre liste d'ami <----");
                         } else {
                             if (!personne.rechercheAmi(membre.get(choix - 1))) {
@@ -225,29 +225,28 @@ public class Facebook {
         while (run) {
 
             System.out.println("\n======= Menu =======");
-            System.out.println("\n1- administration \n2- utilisateur \n3- quitter");
+            System.out.println("\n1- administration \n2- utilisateur (propre au premier utilisateur creer )\n3- Changer d'utilisateur\n4- quitter");
             System.out.print("\nChoix:");
-
             int choix = getChoixInt();
             switch (choix) {
                 case 1:
                     panelAdmin();
                     break;
                 case 2:
+                    /*utilisation de votre profile creer en 1er  */
 
-                    //TODO:creer un methode pour basculer entre les utilisateur
-                    /*pour choisire la personne */
-//                    afficherListPersonne();
-//                    System.out.print("choix :");
-//                    choix = getChoixInt();
-//                    panelUser(membre.get(choix - 1));
-
-
-                    /*utiliser votre profile*/
                     panelUser(membre.get(0));
+
                     break;
 
                 case 3:
+                    /*pour choisire une autre personne */
+                    afficherListPersonne();
+                    System.out.print("choix :");
+                    choix = getChoixInt();
+                    panelUser(membre.get(choix - 1));
+                    break;
+                case 4:
                     System.out.println("\n----------------> Retour <----------------");
                     run = false;
                     break;
