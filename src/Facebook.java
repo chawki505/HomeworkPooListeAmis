@@ -65,7 +65,7 @@ public class Facebook {
         System.out.print("Donnez un nom :");
         String nom = getChoixString();
         System.out.print("\nLa nationaliter :");
-        System.out.println("\n1- Algerie\n2- France\n3- Espagne\n4- Canada \n5- Angleterre \n6- Italy \n7- USA \n8- Bresil \n9- Cameroune \n10- Japon");
+        System.out.println("\n1- Algerie\n2- France\n3- Espagne\n4- Canada \n5- Angleterre \n6- Italy \n7- USA \n8- Bresil \n9- Cameroun \n10- Japon");
         System.out.print("\nSelectionner-une de 1 a 10 :  ");
         String nat = getChoixString();
         switch (nat) {
@@ -118,7 +118,7 @@ public class Facebook {
                 break;
 
             case "9":
-                membre.add(new Personne(nom, "Cemeroune"));
+                membre.add(new Personne(nom, "Cemeroun"));
                 System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
@@ -137,6 +137,7 @@ public class Facebook {
                 break;
         }
     }
+
 
 
     //methode priver pour le menu administrateur
