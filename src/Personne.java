@@ -101,6 +101,20 @@ public class Personne {
         } else System.out.println("---> Vous n'avez pas encore d'amis <---");
     }
 
+    void afficherAmiMemeNationalitee() {
+        int compteur = 0;
+        if (nombreAmi != 0) {
+            for (int i = 0; i < listeAmis.size(); i++) {
+                if (listeAmis.get(i).nationalitee.equals(nationalitee)) {
+                    System.out.println(listeAmis.get(i).toString());
+                    compteur++;
+                }
+
+            }
+            System.out.println("---> Vous avez " + compteur + " ami(s) de meme nationaliter  <---");
+        } else System.out.println("---> Vous n'avez pas encore d'amis <---");
+    }
+
     @Override
     public String toString() {
         return " Nom : " + nom + " / " + "Nationalitee : " + nationalitee + ", " + nombreAmi + "ami(s)";

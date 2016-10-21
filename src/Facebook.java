@@ -139,7 +139,6 @@ public class Facebook {
     }
 
 
-
     //methode priver pour le menu administrateur
     private void panelAdmin() {
         boolean run = true;
@@ -186,7 +185,7 @@ public class Facebook {
         boolean run = true;
         while (run) {
             System.out.println("\n==== Menu User (" + personne.getNom() + ") ====");
-            System.out.println("\n1- Afficher votre liste ami \n2- Ajouter un ami \n3- Suprmier un ami \n4- Afficher vos information \n5- Afficher vos amis etranger \n6- Retour");
+            System.out.println("\n1- Afficher votre liste ami \n2- Ajouter un ami \n3- Suprmier un ami \n4- Afficher vos information \n5- Afficher vos amis etranger \n6- Afficher vos amis de meme nationaliter \n7- Retour");
             System.out.print("\nVotre choix : ");
 
             int choix = getChoixInt();
@@ -233,6 +232,9 @@ public class Facebook {
                     personne.afficherAmiEtranger();
                     break;
                 case 6:
+                    personne.afficherAmiMemeNationalitee();
+                    break;
+                case 7:
                     System.out.println("\n----------------> Retour <----------------");
                     run = false;
                     break;
