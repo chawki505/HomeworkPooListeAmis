@@ -65,42 +65,66 @@ public class Facebook {
         System.out.print("Donnez un nom :");
         String nom = getChoixString();
         System.out.print("\nLa nationaliter :");
-        System.out.println("\n1- Algerie\n2- France\n3- Espagne\n4- Canada");
-        System.out.print("\nSelectionner-une de 1 a 4 :  ");
+        System.out.println("\n1- Algerie\n2- France\n3- Espagne\n4- Canada \n5- Angleterre \n6- Italy \n7- USA \n8- Bresil \n9- Cameroune \n10- Japon");
+        System.out.print("\nSelectionner-une de 1 a 10 :  ");
         String nat = getChoixString();
         switch (nat) {
             case "1":
-            case "Algerie":
-            case "algerie":
-            case "DZ":
-            case "dz":
                 membre.add(new Personne(nom, "Algerie"));
                 System.out.println("\nVos information en ete creer  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
+
             case "2":
-            case "France":
-            case "france":
-            case "FR":
-            case "fr":
                 membre.add(new Personne(nom, "France"));
-                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                System.out.println("\nVos information en ete creer  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
+
             case "3":
-            case "Espagne":
-            case "espagne":
-            case "ES":
-            case "es":
                 membre.add(new Personne(nom, "Espagne"));
                 System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
 
             case "4":
-            case "Canada":
-            case "canada":
                 membre.add(new Personne(nom, "Canada"));
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                nombrePersonne++;
+                break;
+
+            case "5":
+                membre.add(new Personne(nom, "Angleterre"));
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                nombrePersonne++;
+                break;
+
+            case "6":
+                membre.add(new Personne(nom, "Italy"));
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                nombrePersonne++;
+                break;
+
+            case "7":
+                membre.add(new Personne(nom, "USA"));
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                nombrePersonne++;
+                break;
+
+            case "8":
+                membre.add(new Personne(nom, "Bresil"));
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                nombrePersonne++;
+                break;
+
+            case "9":
+                membre.add(new Personne(nom, "Cemeroune"));
+                System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
+                nombrePersonne++;
+                break;
+
+            case "10":
+                membre.add(new Personne(nom, "Japon"));
                 System.out.println("\nCreation de  " + membre.get(nombrePersonne).toString());
                 nombrePersonne++;
                 break;
@@ -128,14 +152,16 @@ public class Facebook {
                     creerPersonne();
                     break;
                 case 2:
-                    if (nombrePersonne > 0) {
+                    if (nombrePersonne > 1) {
                         afficherListPersonne();
                         System.out.print("\nchoix :");
                         choix = getChoixInt();
                         if (choix == 1) {
+                            System.out.println("\n---> Desoler vous ne pouvez pas vous suprimer <---");
+                        } else {
                             suprimerPersonne(membre.get(choix - 1));
                             System.out.println("\n---> la personne a ete suprimé <---");
-                        } else System.out.println("\n---> Desoler vous ne pouvez pas vous suprimer <---");
+                        }
 
                     } else System.out.println("\n---> Creer dabord une personne avant de suprimé <---");
                     break;
@@ -241,10 +267,12 @@ public class Facebook {
 
                 case 3:
                     /*pour choisire une autre personne */
-                    afficherListPersonne();
-                    System.out.print("choix :");
-                    choix = getChoixInt();
-                    panelUser(membre.get(choix - 1));
+                    if (nombrePersonne >= 2) {
+                        afficherListPersonne();
+                        System.out.print("choix :");
+                        choix = getChoixInt();
+                        panelUser(membre.get(choix - 1));
+                    } else System.out.println("--> Creer d'autre personne ! <---");
                     break;
                 case 4:
                     System.out.println("\n----------------> Retour <----------------");
